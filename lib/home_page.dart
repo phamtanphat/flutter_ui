@@ -36,6 +36,32 @@ class _HomePageState extends State<HomePage> {
                 hintText: "Input number 2",
               ),
               keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 10),
+            Text("Result = 10" , style: TextStyle(fontSize: 20 , color: Colors.red)),
+            SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: (){
+
+                }, child: Text("+" , style: TextStyle(fontSize: 20))),
+                ElevatedButton(onPressed: (){
+
+                }, child: Text("-" , style: TextStyle(fontSize: 20)))
+              ],
+            ),
+            SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: (){
+
+                }, child: Text("*" , style: TextStyle(fontSize: 20))),
+                ElevatedButton(onPressed: (){
+
+                }, child: Text("/" , style: TextStyle(fontSize: 20)))
+              ],
             )
           ],
         ),
