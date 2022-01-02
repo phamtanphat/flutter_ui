@@ -32,24 +32,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print("initState" );
+    print("Parent : initState" );
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    print("didChangeDependencies");
+    print("Parent : didChangeDependencies");
   }
 
   @override
   void didUpdateWidget(covariant HomeScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print("didUpdateWidget");
+    print("Parent : didUpdateWidget");
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
+    print("Parent : build");
     return Scaffold(
       appBar: AppBar(
         title: Text("Home Screen"),
@@ -63,10 +63,47 @@ class _HomeScreenState extends State<HomeScreen> {
              setState(() {
                text = "abc";
              });
-            }, child: Text("Handle Text"))
+            }, child: Text("Handle Text")),
+            Children()
           ],
         )
       ),
     );
   }
 }
+
+class Children extends StatefulWidget {
+
+  @override
+  _ChildrenState createState() => _ChildrenState();
+}
+
+class _ChildrenState extends State<Children> {
+
+  @override
+  void initState() {
+    super.initState();
+    print("Children : initState" );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("Children : didChangeDependencies");
+  }
+
+  @override
+  void didUpdateWidget(covariant Children oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("Children : didUpdateWidget");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print("Children : build");
+    return Container(
+      child: Text("Children"),
+    );
+  }
+}
+
