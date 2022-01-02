@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print("initState");
+    print("initState" );
   }
 
   @override
@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String text = "def";
     print("build");
     return Scaffold(
       appBar: AppBar(
@@ -54,32 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
         constraints: BoxConstraints.expand(),
-        child: Stack(
+        child: Column(
           children: [
-            Container(
-                color: Colors.red,
-                width: MediaQuery.of(context).size.width / 5,
-                height: MediaQuery.of(context).size.width / 5,
-                child: Text("View A")
-            ),
-            Positioned(
-              top: MediaQuery.of(context).size.width / 5,
-              left: MediaQuery.of(context).size.width / 5,
-              child: Container(
-                  color: Colors.yellow,
-                  width: MediaQuery.of(context).size.width / 5,
-                  height: MediaQuery.of(context).size.width / 5,
-                  child: Text("View B")
-              ),
-            ),
-            Align(
-              child: Container(
-                  color: Colors.blue,
-                  width: MediaQuery.of(context).size.width / 5,
-                  height: MediaQuery.of(context).size.width / 5,
-                  child: Text("View C")
-              ),
-            )
+            Text(text),
+            ElevatedButton(onPressed: (){
+              text = "abc";
+            }, child: Text("Handle Text"))
           ],
         )
       ),
