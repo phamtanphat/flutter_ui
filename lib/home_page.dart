@@ -6,6 +6,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final TextEditingController number1Controller = TextEditingController();
+  final TextEditingController number2Controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +23,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             SizedBox(height: 5),
             TextField(
+              controller: number1Controller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10))
@@ -29,6 +34,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 5),
             TextField(
+              controller: number2Controller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10))
