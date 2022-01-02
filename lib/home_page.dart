@@ -9,6 +9,7 @@ class _HomePageState extends State<HomePage> {
 
   final TextEditingController number1Controller = TextEditingController();
   final TextEditingController number2Controller = TextEditingController();
+  String result = "";
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +45,26 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
             ),
             SizedBox(height: 10),
-            Text("Result = 10" , style: TextStyle(fontSize: 20 , color: Colors.red)),
+            Text(result.isEmpty ? "" : "Result = $result", style: TextStyle(fontSize: 20 , color: Colors.red)),
             SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(onPressed: (){
+                    String textNumber1 = number1Controller.text.toString();
+                    String textNumber2 = number2Controller.text.toString();
+
+                    if(textNumber1.isEmpty || textNumber2.isEmpty){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Empty input")));
+                      return;
+                    }
+
+                    int number1 = int.parse(textNumber1);
+                    int number2 = int.parse(textNumber2);
+
+                    setState(() {
+                      result = (number1 +  number2).toString();
+                    });
 
                 }, child: Text("+" , style: TextStyle(fontSize: 20))),
                 ElevatedButton(onPressed: (){
