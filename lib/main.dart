@@ -27,6 +27,8 @@ class HomeScreen extends StatefulWidget {
 // state object cua widget ben tren
 class _HomeScreenState extends State<HomeScreen> {
 
+  String text = "def";
+
   @override
   void initState() {
     super.initState();
@@ -47,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String text = "def";
     print("build");
     return Scaffold(
       appBar: AppBar(
@@ -59,7 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Text(text),
             ElevatedButton(onPressed: (){
-              text = "abc";
+             setState(() {
+               text = "abc";
+             });
             }, child: Text("Handle Text"))
           ],
         )
